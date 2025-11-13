@@ -1,15 +1,12 @@
-module reg5bit(CK, rst, load, D, Q);
-input CK, rst, load;
-input [4:0] D;
-output reg [4:0] Q;
+module reg5bit(clk, rst, ld, D, Q);
+    input clk, rst, ld;
+    input [4:0] D;
+    output reg [4:0] Q;
 
-// ✅ FIX: add initial reset for simulation stability
-initial Q = 5'b00000;
-
-always @ (posedge CK or negedge rst) begin
-    if (!rst)
-        Q <= 5'b00000;
-    else if (!load)   // ✅ load active LOW (same as your testbench)
-        Q <= D;
-end
+    always @(posedge clk or negedge rst) begin
+        if (!rst)
+            Q <= 5'b00000;
+        else if (!ld)
+            Q <= D;
+    end
 endmodule
