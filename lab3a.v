@@ -1,5 +1,5 @@
 module lab3a(clk, rst, ld, cin, a, b, d2, d1, d0);
-input CK, rst, load, cin;
+input clk, rst, ld, cin;
 input [7:0] a, b;
 output [6:0] d2, d1, d0;
 
@@ -45,3 +45,4 @@ reg5bit r2(clk, rst, ld, {z2, m2[3:0]}, reg5bit_output);
 decoder Dec1(reg5bit_output[3:0], d1);
 circuit_b b0(reg5bit_output[4], d2);
 endmodule
+
